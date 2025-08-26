@@ -4,8 +4,11 @@ import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
+import { useTheme } from "next-themes";
 
 const ParticlesContainer = () => {
+  const { theme } = useTheme();
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
@@ -13,6 +16,10 @@ const ParticlesContainer = () => {
   const particlesLoaded = useCallback(async () => {
     console.log("Particles loaded");
   }, []);
+
+  // Cores baseadas no tema
+  const particleColor = theme === "dark" ? "#ffffff" : "#000000";
+  const linkColor = theme === "dark" ? "#ffffff" : "#000000";
 
   return (
     <div className="w-full h-full absolute inset-0 -z-10">
@@ -51,10 +58,10 @@ const ParticlesContainer = () => {
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: particleColor,
             },
             links: {
-              color: "#ffffff",
+              color: linkColor,
               distance: 150,
               enable: true,
               opacity: 0.5,
