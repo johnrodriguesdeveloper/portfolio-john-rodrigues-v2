@@ -7,9 +7,17 @@ import { useTheme } from "next-themes";
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
+  console.log("Current theme:", theme);
+
+  const handleToggle = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    console.log("Switching to theme:", newTheme);
+    setTheme(newTheme);
+  };
+
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={handleToggle}
       className="rounded-md p-2 hover:bg-accent hover:text-accent-foreground relative"
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

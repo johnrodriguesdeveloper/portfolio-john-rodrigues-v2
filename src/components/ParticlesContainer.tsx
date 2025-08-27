@@ -17,7 +17,6 @@ const ParticlesContainer = () => {
     console.log("Particles loaded");
   }, []);
 
-  // Cores baseadas no tema
   const particleColor = theme === "dark" ? "#ffffff" : "#000000";
   const linkColor = theme === "dark" ? "#ffffff" : "#000000";
 
