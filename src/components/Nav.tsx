@@ -37,7 +37,7 @@ export default function Nav() {
             <Link
               key={link.name}
               href={link.path}
-              className={`${link.path === pathName && "text-red-500"} relative flex items-center group hover:text-red-600 transition-all duration-300`}
+              className={`${link.path === pathName && "text-indigo-500"} relative flex items-center group hover:text-indigo-500 transition-all duration-300`}
             >
               <div className="absolute pr-14 right-0 hidden xl:group-hover:flex">
                 <div className="bg-primary relative flex text-primary items-center p-[6px] rounded-[3px]">

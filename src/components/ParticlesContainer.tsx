@@ -17,8 +17,8 @@ const ParticlesContainer = () => {
     console.log("Particles loaded");
   }, []);
 
-  const particleColor = theme === "dark" ? "#ffffff" : "#000000";
-  const linkColor = theme === "dark" ? "#ffffff" : "#000000";
+  const particleColor = theme === "dark" ? "#d4d4d8" : "#000000";
+  const linkColor = theme === "dark" ? "#d4d4d8" : "#000000";
 
   return (
     <div className="w-full h-full absolute inset-0 -z-10">

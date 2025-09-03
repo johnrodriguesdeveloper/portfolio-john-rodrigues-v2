@@ -1,7 +1,31 @@
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <section className="h-screen">
+      <div className="container mx-auto p-4 h-screen">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+          <div className="text-center xl:text-left">
+            <span>Software Developer</span>
+            <h1 className="h1 mb-6">
+              Olá, Sou <br />{" "}
+              <span className="text-indigo-500">John Rodrigues</span>
+            </h1>
+            <p className="max-w-[500px] mb-9 text-primary">
+              Me destaco na criação de experiências digitais elegantes e sou
+              proficiente em várias linguagens de programação e tecnologias.
+            </p>
+            <div>
+              <Button variant="outline">
+                Download CV
+                <Download />
+              </Button>
+            </div>
+          </div>
+          <div>foto</div>
+        </div>
+      </div>
+    </section>
   );
 }
