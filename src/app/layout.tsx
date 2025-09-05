@@ -40,7 +40,9 @@ export default function RootLayout({
             <ParticlesContainer />
             <Nav />
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 flex items-center justify-center px-4">
+              <div className="w-full max-w-5xl mx-auto">{children}</div>
+            </main>
           </div>
         </ThemeProvider>
       </body>

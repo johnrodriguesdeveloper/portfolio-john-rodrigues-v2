@@ -4,7 +4,7 @@ import { Instagram, Linkedin, Github } from "lucide-react";
 export const Header = () => {
   return (
     <header className="border-b">
-      <div className="container mx-auto relative z-[60] flex items-center justify-between p-4 ">
+      <div className="container relative z-[60] flex items-center justify-between p-4 w-full max-w-7xl mx-auto">
         <h1 className="text-xl font-mono">
           John<span>.</span>
         </h1>

@@ -1,25 +1,28 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion"; // 1. Importe o motion
+import { motion } from "framer-motion";
 
 function Photo() {
+  const circleSize = 498;
+  const svgViewBoxSize = circleSize + 2;
+  const circleRadius = circleSize / 2;
+  const circleCenter = svgViewBoxSize / 2;
+
   return (
     <div className="w-full h-full relative">
-      {/* Container que define o tamanho e o posicionamento */}
-      <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] relative">
-        {/* 2. Adicione o SVG animado aqui */}
+      <div className="w-[298px] h-[298px] xl:w-[460px] xl:h-[460px] relative">
         <motion.svg
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-0 left-0 w-full h-full z-10"
           fill="transparent"
-          viewBox="0 0 506 506"
+          viewBox={`0 0 ${svgViewBoxSize} ${svgViewBoxSize}`}
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.circle
-            cx="253"
-            cy="253"
-            r="250"
-            stroke="#00ff99" // Você pode trocar a cor aqui
+            cx={circleCenter}
+            cy={circleCenter}
+            r={circleRadius}
+            stroke="#6366F1"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -35,15 +38,13 @@ function Photo() {
             }}
           />
         </motion.svg>
-
-        {/* Seu componente de Imagem original */}
         <Image
           src="/photo.jpeg"
           priority
           quality={100}
           fill
           alt="Minha Foto"
-          className="object-cover rounded-full"
+          className="object-cover rounded-full z-0"
         />
       </div>
     </div>
