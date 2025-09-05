@@ -1,3 +1,4 @@
+import Photo from "@/components/Photo";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
@@ -6,7 +7,7 @@ export default function Home() {
     <section className="h-screen">
       <div className="container mx-auto p-4 h-screen">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-          <div className="text-center xl:text-left">
+          <div className="text-center xl:text-left order-2 xl:order-none">
             <span>Software Developer</span>
             <h1 className="h1 mb-6">
               Olá, Sou <br />{" "}
@@ -16,14 +17,16 @@ export default function Home() {
               Me destaco na criação de experiências digitais elegantes e sou
               proficiente em várias linguagens de programação e tecnologias.
             </p>
-            <div>
+            <div className="">
               <Button variant="outline">
                 Download CV
                 <Download />
               </Button>
             </div>
           </div>
-          <div>foto</div>
+          <div className="order-1 xl:order-none mb-4 xl:mb-0">
+            <Photo />
+          </div>
         </div>
       </div>
     </section>
