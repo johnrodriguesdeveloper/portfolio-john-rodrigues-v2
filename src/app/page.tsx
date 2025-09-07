@@ -18,9 +18,11 @@ export default function Home() {
               proficiente em várias linguagens de programação e tecnologias.
             </p>
             <div className="">
-              <Button variant="outline">
-                Download CV
-                <Download />
+              <Button variant="outline" asChild>
+                <a href="/johnrodriguesdev.pdf" download>
+                  Download CV
+                  <Download className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>
