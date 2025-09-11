@@ -127,62 +127,65 @@ export default function About() {
   };
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Sobre mim</h1>
-        <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+    <div className="container mx-auto py-8 px-2 sm:px-6 ">
+      <div className="text-center mb-8 max-[500px]:mb-2">
+        <p className="text-base sm:text-lg  max-w-2xl mx-auto ">
           Conheça mais sobre minha trajetória profissional, formação e
           competências técnicas.
         </p>
       </div>
 
       <Tabs defaultValue="about" className="w-full max-w-4xl mx-auto">
-        <TabsList className="grid w-full grid-cols-4 h-12 p-1">
+        <TabsList className="grid w-full grid-cols-4 h-12 p-1 overflow-x-auto">
           <TabsTrigger
             value="about"
-            className="flex items-center gap-2 px-4 py-2 text-sm"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
           >
             <User className="w-4 h-4" />
-            Pessoal
+            <span className="max-[500px]:hidden">Pessoal</span>
           </TabsTrigger>
           <TabsTrigger
             value="experience"
-            className="flex items-center gap-2 px-4 py-2 text-sm"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
           >
             <Briefcase className="w-4 h-4" />
-            Experiência
+            <span className="max-[500px]:hidden">Experiência</span>
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="flex items-center gap-2 px-4 py-2 text-sm"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
           >
             <GraduationCap className="w-4 h-4" />
-            Formação
+            <span className="max-[500px]:hidden">Formação</span>
           </TabsTrigger>
           <TabsTrigger
             value="skills"
-            className="flex items-center gap-2 px-4 py-2 text-sm"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
           >
             <Code className="w-4 h-4" />
-            Competências
+            <span className="max-[500px]:hidden">Competências</span>
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="about" className="mt-6">
           <div className="bg-card rounded-lg p-6 border">
-            <h2 className="text-2xl font-semibold mb-4">{about.title}</h2>
-            <p className="text-foreground/80 mb-6">{about.description}</p>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+              {about.title}
+            </h2>
+            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+              {about.description}
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {about.info.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center p-3 bg-background rounded-md"
+                  className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between p-3 bg-background rounded-md"
                 >
                   <span className="font-medium text-foreground">
                     {item.fieldName}:
                   </span>
-                  <span className="text-foreground/80 font-medium">
+                  <span className="text-foreground/80 font-medium break-all">
                     {item.fieldValue}
                   </span>
                 </div>
@@ -193,8 +196,12 @@ export default function About() {
 
         <TabsContent value="experience" className="mt-6">
           <div className="bg-card rounded-lg p-6 border">
-            <h2 className="text-2xl font-semibold mb-4">{experiencie.title}</h2>
-            <p className="text-foreground/80 mb-6">{experiencie.description}</p>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+              {experiencie.title}
+            </h2>
+            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+              {experiencie.description}
+            </p>
 
             <div className="space-y-4">
               {experiencie.items.map((item, index) => (
@@ -204,12 +211,14 @@ export default function About() {
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground">
+                      <h3 className="font-semibold text-base sm:text-lg text-foreground">
                         {item.position}
                       </h3>
-                      <p className="text-primary font-medium">{item.company}</p>
+                      <p className="text-primary font-medium text-sm sm:text-base">
+                        {item.company}
+                      </p>
                     </div>
-                    <span className="text-sm text-foreground/70 bg-background px-2 py-1 rounded">
+                    <span className="text-xs sm:text-sm text-foreground/70 bg-background px-2 py-1 rounded">
                       {item.duration}
                     </span>
                   </div>
@@ -221,8 +230,12 @@ export default function About() {
 
         <TabsContent value="education" className="mt-6">
           <div className="bg-card rounded-lg p-6 border">
-            <h2 className="text-2xl font-semibold mb-4">{education.title}</h2>
-            <p className="text-foreground/80 mb-6">{education.description}</p>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+              {education.title}
+            </h2>
+            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+              {education.description}
+            </p>
 
             <div className="space-y-4">
               {education.items.map((item, index) => (
@@ -232,14 +245,14 @@ export default function About() {
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground">
+                      <h3 className="font-semibold text-base sm:text-lg text-foreground">
                         {item.degree}
                       </h3>
-                      <p className="text-primary font-medium">
+                      <p className="text-primary font-medium text-sm sm:text-base">
                         {item.institution}
                       </p>
                     </div>
-                    <span className="text-sm text-foreground/70 bg-background px-2 py-1 rounded">
+                    <span className="text-xs sm:text-sm text-foreground/70 bg-background px-2 py-1 rounded">
                       {item.duration}
                     </span>
                   </div>
@@ -251,8 +264,12 @@ export default function About() {
 
         <TabsContent value="skills" className="mt-6">
           <div className="bg-card rounded-lg p-6 border">
-            <h2 className="text-2xl font-semibold mb-4">{skills.title}</h2>
-            <p className="text-foreground/80 mb-6">{skills.description}</p>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+              {skills.title}
+            </h2>
+            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+              {skills.description}
+            </p>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {skills.skillList.map((skill, index) => (
@@ -263,7 +280,7 @@ export default function About() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
                     <Code className="w-6 h-6 text-primary" />
                   </div>
-                  <span className="text-sm font-medium text-center text-foreground">
+                  <span className="text-xs sm:text-sm font-medium text-center text-foreground">
                     {skill.name}
                   </span>
                 </div>
