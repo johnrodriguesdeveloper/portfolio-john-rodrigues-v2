@@ -3,6 +3,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { User, Briefcase, GraduationCap, Code } from "lucide-react";
 
+//TODO - atualizar textos e icones das especialidades.
+
 export default function About() {
   const about = {
     title: "Sobre mim",
