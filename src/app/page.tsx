@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 
 export default function Home() {
   return (
-    <section className="h-screen">
+    <section className="h-screen 375px:mb-18">
       <div className="container mx-auto p-4 h-screen">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
