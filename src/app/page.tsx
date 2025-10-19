@@ -1,15 +1,8 @@
 import Photo from "@/components/Photo";
 import { Button } from "@/components/ui/button";
-import { getData } from "@/lib/getData";
 import { Download } from "lucide-react";
 
 export default async function Home() {
-  // Espera os dados do Notion
-  const infoData = await getData();
-
-  // Para inspecionar o retorno certinho
-  console.log("Notion data:", infoData);
-
   return (
     <section className="h-screen 375px:mb-18">
       <div className="container mx-auto p-4 h-screen">

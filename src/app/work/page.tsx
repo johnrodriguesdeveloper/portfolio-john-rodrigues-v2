@@ -1,21 +1,38 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
 import { FilterButton } from "@/components/FilterButton";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ALL_PROJECTS, FILTERS } from "./work.constants";
-
-//TODO responsividade Work e Ajuste de tela com menos info
+import { FILTERS } from "./work.constants";
+import type { Project } from "./types";
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState<
     "todos" | "html" | "css" | "node" | "react" | "next"
   >("todos");
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get<Project[]>("/api/projects")
+      .then((res) => {
+        setProjects(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao carregar projetos:", err);
+        setLoading(false);
+      });
+  }, []);
 
   const filtered = useMemo(() => {
-    if (activeFilter === "todos") return ALL_PROJECTS;
-    return ALL_PROJECTS.filter((p) => p.categories.includes(activeFilter));
-  }, [activeFilter]);
+    if (activeFilter === "todos") return projects;
+    return projects.filter((p) => p.categories.includes(activeFilter));
+  }, [activeFilter, projects]);
+
+  if (loading) return <p>Carregando projetos...</p>;
 
   return (
     <div className="space-y-8">
