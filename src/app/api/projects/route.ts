@@ -38,7 +38,7 @@ export async function GET() {
       .split(",")
       .map((c) => c.trim().toLowerCase())
       .filter((c): c is AllowedCategory =>
-        allowedCategories.includes(c as AllowedCategory)
+        (allowedCategories as readonly string[]).includes(c)
       );
 
     return {
