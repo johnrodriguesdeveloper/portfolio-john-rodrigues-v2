@@ -4,9 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
-
 //TODO Ajeitar parte icones de contato
-
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -60,7 +58,7 @@ export default function Contact() {
         setSubject("");
         setMessage("");
       } catch (err) {
-        setFeedback("Não foi possível enviar. Tente novamente.");
+        setFeedback("Não foi possível enviar. Tente novamente.", err);
       } finally {
         setSubmitting(false);
       }

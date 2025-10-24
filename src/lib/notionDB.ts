@@ -26,7 +26,9 @@ export async function getData(): Promise<NotionPage[]> {
     database_id: process.env.NOTION_DATABASE_ID as string,
   });
 
-  const dataSourceId = (db as any).data_sources?.[0]?.id;
+  const dbWithSources = db as { data_sources?: { id: string }[] };
+
+  const dataSourceId = dbWithSources.data_sources?.[0]?.id;
 
   if (!dataSourceId) {
     throw new Error("Data source ID não encontrado no banco do Notion.");

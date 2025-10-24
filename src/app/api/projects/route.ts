@@ -19,9 +19,6 @@ interface NotionPage {
   properties: Record<string, NotionProperty>;
 }
 
-interface NotionResponse {
-  results: NotionPage[];
-}
 const allowedCategories = ["html", "css", "node", "react", "next"] as const;
 
 export async function GET() {
