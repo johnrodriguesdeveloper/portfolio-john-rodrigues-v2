@@ -58,7 +58,8 @@ export default function Contact() {
         setSubject("");
         setMessage("");
       } catch (err) {
-        setFeedback("Não foi possível enviar. Tente novamente.", err);
+        setFeedback("Não foi possível enviar. Tente novamente.");
+        console.log(err);
       } finally {
         setSubmitting(false);
       }
