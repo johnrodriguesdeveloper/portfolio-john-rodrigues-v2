@@ -20,6 +20,7 @@ interface NotionPage {
 }
 
 const allowedCategories = ["html", "css", "node", "react", "next"] as const;
+type AllowedCategory = (typeof allowedCategories)[number];
 
 export async function GET() {
   const data: NotionPage[] = await getData();
@@ -36,8 +37,8 @@ export async function GET() {
     const categories = getRichText(props.categories)
       .split(",")
       .map((c) => c.trim().toLowerCase())
-      .filter((c): c is (typeof allowedCategories)[number] =>
-        allowedCategories.includes(c as any)
+      .filter((c): c is AllowedCategory =>
+        allowedCategories.includes(c as AllowedCategory)
       );
 
     return {
