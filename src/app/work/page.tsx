@@ -70,7 +70,6 @@ export default function Work() {
           ))}
         </div>
 
-        {/* 🔹 Estado vazio */}
         {filtered.length === 0 && (
           <div className="text-muted-foreground py-16 text-center">
             <div className="text-4xl mb-4">🔍</div>

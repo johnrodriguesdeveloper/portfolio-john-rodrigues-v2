@@ -1,11 +1,9 @@
-import type { FILTERS } from "@/app/work/work.constants";
-
 export function FilterButton({
   filter,
   isActive,
   onClick,
 }: {
-  filter: (typeof FILTERS)[0];
+  filter: { label: string; value: string };
   isActive: boolean;
   onClick: () => void;
 }) {
