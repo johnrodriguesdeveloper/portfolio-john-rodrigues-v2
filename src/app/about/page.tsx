@@ -1,7 +1,6 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { calculateExperience } from "@/helpers/calculateExperience.";
 import { User, Briefcase, GraduationCap, Code } from "lucide-react";
 import { about, experiencie } from "./about.constants";
 

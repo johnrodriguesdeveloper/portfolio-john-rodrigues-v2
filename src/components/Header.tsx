@@ -1,3 +1,4 @@
+import Link from "next/link"; // só se for Next.js
 import { ThemeToggle } from "./theme-toggle";
 import { Instagram, Linkedin, Github } from "lucide-react";
 
@@ -5,9 +6,13 @@ export const Header = () => {
   return (
     <header className="border-b">
       <div className="container relative z-[60] flex items-center justify-between p-4 w-full max-w-7xl mx-auto">
-        <h1 className="text-xl font-mono">
+        <Link
+          href="/"
+          className="text-xl font-mono cursor-pointer transition-all duration-200 hover:text-accent"
+        >
           John<span>.</span>
-        </h1>
+        </Link>
+
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3">
             <a
