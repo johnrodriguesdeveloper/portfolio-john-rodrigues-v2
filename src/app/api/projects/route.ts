@@ -5,7 +5,6 @@ import type { NotionPage, NotionProperty } from "./types";
 
 export async function GET() {
   const data: NotionPage[] = await getData();
-
   const projects: Project[] = data.map((page) => {
     const props = page.properties;
 

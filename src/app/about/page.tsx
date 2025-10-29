@@ -1,66 +1,13 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { calculateExperience } from "@/helpers/calculateExperience.";
 import { User, Briefcase, GraduationCap, Code } from "lucide-react";
+import { about, experiencie } from "./about.constants";
 
 //TODO - atualizar textos e icones das especialidades.
 
 export default function About() {
-  const about = {
-    title: "Sobre mim",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem praesentium odit voluptatibus eos veniam iste possimus quo nostrum dicta corrupti. Veniam aspernatur magnam a est dolore quam maxime optio animi!",
-    info: [
-      {
-        fieldName: "Nome",
-        fieldValue: "John Rodrigues",
-      },
-      {
-        fieldName: "Telefone",
-        fieldValue: "(79) 9 88667249",
-      },
-      {
-        fieldName: "Instagram",
-        fieldValue: "johnrodrigues._",
-      },
-      {
-        fieldName: "Nacionalidade",
-        fieldValue: "Brasileiro",
-      },
-      {
-        fieldName: "Email",
-        fieldValue: "johnrodriguesdeveloper@gmail.com",
-      },
-      {
-        fieldName: "Idiomas",
-        fieldValue: "Português, Inglês",
-      },
-    ],
-  };
-
-  const experiencie = {
-    title: "Minhas experiências",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, dicta adipisci! Et, repellat veritatis doloribus esse deserunt est perspiciatis magnam fugit, dicta facere id, optio accusamus dolores culpa praesentium nisi.",
-    items: [
-      {
-        company: "Tech Company A",
-        position: "Desenvolvedor Full Stack",
-        duration: "2022-presente",
-      },
-      {
-        company: "Tech Company B",
-        position: "Desenvolvedor Frontend",
-        duration: "2021-2022",
-      },
-      {
-        company: "Startup C",
-        position: "Desenvolvedor Junior",
-        duration: "2020-2021",
-      },
-    ],
-  };
-
   const education = {
     title: "Minhas formações",
     description:
@@ -141,28 +88,28 @@ export default function About() {
         <TabsList className="grid w-full grid-cols-4 h-12 p-1 overflow-x-auto">
           <TabsTrigger
             value="about"
-            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center  transition-all duration-200 hover:border-accent cursor-pointer"
           >
             <User className="w-4 h-4" />
             <span className="max-[500px]:hidden">Pessoal</span>
           </TabsTrigger>
           <TabsTrigger
             value="experience"
-            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center  transition-all duration-200 hover:border-accent cursor-pointer"
           >
             <Briefcase className="w-4 h-4" />
             <span className="max-[500px]:hidden">Experiência</span>
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center  transition-all duration-200 hover:border-accent cursor-pointer"
           >
             <GraduationCap className="w-4 h-4" />
             <span className="max-[500px]:hidden">Formação</span>
           </TabsTrigger>
           <TabsTrigger
             value="skills"
-            className="flex items-center gap-2 px-4 py-2 text-sm justify-center"
+            className="flex items-center gap-2 px-4 py-2 text-sm justify-center  transition-all duration-200 hover:border-accent cursor-pointer"
           >
             <Code className="w-4 h-4" />
             <span className="max-[500px]:hidden">Competências</span>
@@ -174,7 +121,7 @@ export default function About() {
             <h2 className="text-xl sm:text-2xl font-semibold mb-4">
               {about.title}
             </h2>
-            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+            <p className="text-sm sm:text-base text-foreground/80 mb-6 ">
               {about.description}
             </p>
 
@@ -201,7 +148,7 @@ export default function About() {
             <h2 className="text-xl sm:text-2xl font-semibold mb-4">
               {experiencie.title}
             </h2>
-            <p className="text-sm sm:text-base text-foreground/80 mb-6">
+            <p className="text-sm sm:text-base text-foreground/80 mb-6 whitespace-pre-line">
               {experiencie.description}
             </p>
 
@@ -216,9 +163,12 @@ export default function About() {
                       <h3 className="font-semibold text-base sm:text-lg text-foreground">
                         {item.position}
                       </h3>
-                      <p className="text-primary font-medium text-sm sm:text-base">
+                      <a
+                        href={item.href ?? "#"}
+                        className="text-primary font-medium text-sm sm:text-base transition-all duration-200 hover:text-accent"
+                      >
                         {item.company}
-                      </p>
+                      </a>
                     </div>
                     <span className="text-xs sm:text-sm text-foreground/70 bg-background px-2 py-1 rounded">
                       {item.duration}

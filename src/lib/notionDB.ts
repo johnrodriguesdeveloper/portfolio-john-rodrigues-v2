@@ -5,7 +5,6 @@ export async function getData(): Promise<NotionPage[]> {
   const db = await notion.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID as string,
   });
-
   const dbWithSources = db as { data_sources?: { id: string }[] };
 
   const dataSourceId = dbWithSources.data_sources?.[0]?.id;
