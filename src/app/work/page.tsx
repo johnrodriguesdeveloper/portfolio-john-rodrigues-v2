@@ -4,15 +4,16 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { FilterButton } from "@/components/FilterButton";
 import { ProjectCard } from "@/components/ProjectCard";
-import { FILTERS } from "./work.constants";
 import type { Project } from "./types";
 
 export default function Work() {
-  const [activeFilter, setActiveFilter] = useState<
-    "todos" | "html" | "css" | "node" | "react" | "next"
-  >("todos");
+  const [activeFilter, setActiveFilter] = useState<string>("todos");
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const capitalize = (text: string) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
 
   useEffect(() => {
     axios
@@ -26,6 +27,12 @@ export default function Work() {
         setLoading(false);
       });
   }, []);
+
+  const categories = useMemo(() => {
+    const allCategories = projects.flatMap((p) => p.categories);
+    const unique = Array.from(new Set(allCategories));
+    return ["todos", ...unique];
+  }, [projects]);
 
   const filtered = useMemo(() => {
     if (activeFilter === "todos") return projects;
@@ -47,12 +54,12 @@ export default function Work() {
 
       <div className="space-y-6">
         <div className="flex flex-nowrap gap-3 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-1">
-          {FILTERS.map((filter) => (
+          {categories.map((cat) => (
             <FilterButton
-              key={filter.value}
-              filter={filter}
-              isActive={activeFilter === filter.value}
-              onClick={() => setActiveFilter(filter.value)}
+              key={cat}
+              filter={{ label: capitalize(cat), value: cat }}
+              isActive={activeFilter === cat}
+              onClick={() => setActiveFilter(cat)}
             />
           ))}
         </div>
@@ -63,6 +70,7 @@ export default function Work() {
           ))}
         </div>
 
+        {/* 🔹 Estado vazio */}
         {filtered.length === 0 && (
           <div className="text-muted-foreground py-16 text-center">
             <div className="text-4xl mb-4">🔍</div>

@@ -1,25 +1,5 @@
 import { notion } from "./notion";
-
-export interface NotionRichText {
-  plain_text: string;
-}
-
-export interface NotionProperty {
-  id: string;
-  type: string;
-  title?: NotionRichText[];
-  rich_text?: NotionRichText[];
-  status?: { name: string };
-}
-
-export interface NotionPage {
-  id: string;
-  properties: Record<string, NotionProperty>;
-}
-
-interface NotionResponse {
-  results: NotionPage[];
-}
+import type { NotionPage, NotionResponse } from "./types/notion";
 
 export async function getData(): Promise<NotionPage[]> {
   const db = await notion.databases.retrieve({

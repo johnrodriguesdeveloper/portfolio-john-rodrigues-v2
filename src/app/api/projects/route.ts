@@ -1,26 +1,7 @@
 import { NextResponse } from "next/server";
 import type { Project } from "@/app/work/types";
 import { getData } from "@/lib/notionDB";
-
-interface NotionRichText {
-  plain_text: string;
-}
-
-interface NotionProperty {
-  id: string;
-  type: string;
-  title?: NotionRichText[];
-  rich_text?: NotionRichText[];
-  status?: { name: string };
-}
-
-interface NotionPage {
-  id: string;
-  properties: Record<string, NotionProperty>;
-}
-
-const allowedCategories = ["html", "css", "node", "react", "next"] as const;
-type AllowedCategory = (typeof allowedCategories)[number];
+import type { NotionPage, NotionProperty } from "./types";
 
 export async function GET() {
   const data: NotionPage[] = await getData();
@@ -33,13 +14,10 @@ export async function GET() {
 
     const getTitle = (field?: NotionProperty) =>
       field?.title?.map((t) => t.plain_text).join(" ") || "";
-
     const categories = getRichText(props.categories)
       .split(",")
       .map((c) => c.trim().toLowerCase())
-      .filter((c): c is AllowedCategory =>
-        (allowedCategories as readonly string[]).includes(c)
-      );
+      .filter(Boolean);
 
     return {
       id: page.id,

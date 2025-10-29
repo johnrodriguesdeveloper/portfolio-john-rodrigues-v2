@@ -1,19 +1,20 @@
-export interface NotionDataSource {
-  id: string;
-  name: string;
+export interface NotionRichText {
+  plain_text: string;
 }
 
-export interface NotionDatabase {
+export interface NotionProperty {
   id: string;
-  title: string;
-  data_sources?: NotionDataSource[];
+  type: string;
+  title?: NotionRichText[];
+  rich_text?: NotionRichText[];
+  status?: { name: string };
 }
 
 export interface NotionPage {
   id: string;
-  title: string;
-  description?: string;
-  technologies?: string[];
-  categories?: string[];
-  href?: string;
+  properties: Record<string, NotionProperty>;
+}
+
+export interface NotionResponse {
+  results: NotionPage[];
 }
