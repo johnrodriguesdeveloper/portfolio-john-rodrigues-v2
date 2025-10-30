@@ -36,7 +36,7 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col relative">
+          <div className="flex flex-col relative">
             <ParticlesContainer />
             <Nav />
             <Header />

@@ -42,7 +42,7 @@ export default function Work() {
   if (loading) return <p>Carregando projetos...</p>;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 container mx-auto py-8 px-2 sm:px-6 flex-1">
       <div>
         <h1 className="text-3xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
           Trabalhos
