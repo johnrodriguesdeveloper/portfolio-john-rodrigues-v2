@@ -6,6 +6,7 @@ import { FilterButton } from "@/components/FilterButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import type { Project } from "./types";
 import { capitalize } from "@/helpers/capitalize";
+import { Loader } from "lucide-react";
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState<string>("todos");
@@ -36,13 +37,18 @@ export default function Work() {
     return projects.filter((p) => p.categories.includes(activeFilter));
   }, [activeFilter, projects]);
 
-  if (loading) return <p>Carregando projetos...</p>;
+  if (loading)
+    return (
+      <div className="flex items-center justify-center py-60 ">
+        <Loader className="h-20 w-20 animate-spin text-accent" />
+      </div>
+    );
 
   return (
     <div className="space-y-8 container mx-auto py-8 px-2 sm:px-6 flex-1">
       <div>
         <h1 className="text-3xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
-          Trabalhos
+          Projetos
         </h1>
         <p className="text-muted-foreground mt-2 text-sm">
           Filtre por tecnologia e explore alguns projetos.

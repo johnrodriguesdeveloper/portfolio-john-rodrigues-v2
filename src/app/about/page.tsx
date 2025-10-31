@@ -72,7 +72,7 @@ export default function About() {
               {about.info.map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between p-3 bg-secondary rounded-sm"
+                  className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between p-3 bg-background rounded"
                 >
                   <span className="font-medium text-foreground">
                     {item.fieldName}:
@@ -99,7 +99,7 @@ export default function About() {
               {experiencie.items.map((item, index) => (
                 <div
                   key={index}
-                  className="border-l-2 border-primary pl-4 pb-4"
+                  className="border-l-2  border-primary pl-4 pb-4 bg-background rounded-br-sm rounded-tr-sm"
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>
@@ -136,7 +136,7 @@ export default function About() {
               {education.items.map((item, index) => (
                 <div
                   key={index}
-                  className="border-l-2 border-primary pl-4 pb-4"
+                  className="border-l-2 border-primary pl-4 pb-4 bg-background rounded-br-sm rounded-tr-sm"
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>

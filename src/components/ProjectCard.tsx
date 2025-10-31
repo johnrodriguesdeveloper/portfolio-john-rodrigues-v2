@@ -1,8 +1,13 @@
+import { useState } from "react";
 import type { Project } from "@/app/work/types";
 import Image from "next/image";
-import { Code2 } from "lucide-react";
+import { Code2, Loader } from "lucide-react";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const hasImage = !!project.imageUrl;
+
   return (
     <a
       href={project.href ?? "#"}
@@ -12,21 +17,32 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="space-y-2">
         <div className="flex items-start gap-4">
           <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-accent/10 border relative overflow-hidden">
-            {project.imageUrl ? (
+            {hasImage && isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-card/50">
+                <Loader className="h-5 w-5 animate-spin text-accent" />
+              </div>
+            )}
+
+            {hasImage ? (
               <Image
-                src={project.imageUrl}
+                src={project.imageUrl!}
                 priority
                 quality={100}
                 fill
                 alt={project.title}
                 sizes="64px"
+                className={`object-cover transition-opacity duration-300 ${
+                  isLoading ? "opacity-0" : "opacity-100"
+                }`}
+                onLoadingComplete={() => setIsLoading(false)}
               />
             ) : (
-              <Code2 />
+              <Code2 className="text-accent" />
             )}
           </div>
-          <div className="min-w-0 flex-1 ">
-            <h3 className="text-lg font-semibold leading-tight  transition-colors mb-2">
+
+          <div className="min-w-0 flex-1">
+            <h3 className="text-lg font-semibold leading-tight transition-colors mb-2">
               {project.title}
             </h3>
             <div className="flex flex-wrap gap-1.5">
