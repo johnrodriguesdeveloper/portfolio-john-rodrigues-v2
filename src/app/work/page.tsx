@@ -68,9 +68,13 @@ export default function Work() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {filtered
+            .slice()
+            .reverse()
+            .map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          /
         </div>
 
         {filtered.length === 0 && (
