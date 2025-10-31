@@ -13,10 +13,6 @@ const ParticlesContainer = () => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async () => {
-    console.log("Particles loaded");
-  }, []);
-
   const particleColor = theme === "dark" ? "#d4d4d8" : "#000000";
   const linkColor = theme === "dark" ? "#d4d4d8" : "#000000";
 
@@ -25,7 +21,6 @@ const ParticlesContainer = () => {
       <Particles
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         options={{
           background: {
             color: {
