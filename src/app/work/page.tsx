@@ -5,15 +5,12 @@ import axios from "axios";
 import { FilterButton } from "@/components/FilterButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import type { Project } from "./types";
+import { capitalize } from "@/helpers/capitalize";
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState<string>("todos");
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const capitalize = (text: string) => {
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  };
 
   useEffect(() => {
     axios

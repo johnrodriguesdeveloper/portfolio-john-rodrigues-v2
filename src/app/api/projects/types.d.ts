@@ -8,9 +8,25 @@ export interface NotionProperty {
   type: string;
   title?: NotionRichText[];
   rich_text?: NotionRichText[];
-  status?: { name: string };
+  status?: {
+    id?: string;
+    name: string;
+    color?: string;
+  };
+  files?: NotionFile[];
 }
 
-interface NotionRichText {
+export interface NotionRichText {
   plain_text: string;
+}
+
+export interface NotionFile {
+  name: string;
+  file?: {
+    url: string;
+    expiry_time?: string;
+  };
+  external?: {
+    url: string;
+  };
 }

@@ -1,11 +1,12 @@
 import type { Project } from "@/app/work/types";
-import { CodeIconPlaceholder } from "./CodeIconPlaceholder";
 import Image from "next/image";
+import { Code2 } from "lucide-react";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <a
       href={project.href ?? "#"}
+      target="_blank"
       className="group block overflow-hidden rounded-lg border bg-card p-6 transition-all duration-200 hover:shadow-lg hover:border-accent/20"
     >
       <div className="space-y-2">
@@ -21,7 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 sizes="64px"
               />
             ) : (
-              <CodeIconPlaceholder />
+              <Code2 />
             )}
           </div>
           <div className="min-w-0 flex-1 ">

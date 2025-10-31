@@ -29,6 +29,10 @@ export async function GET() {
       categories,
       href: getRichText(props.href),
       status: props.Status?.status?.name || "Desconhecido",
+      imageUrl:
+        props.imageUrl?.files?.[0]?.file?.url ||
+        props.imageUrl?.files?.[0]?.external?.url ||
+        "",
     };
   });
 
