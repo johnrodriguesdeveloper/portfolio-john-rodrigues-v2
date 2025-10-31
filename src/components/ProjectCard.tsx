@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Project } from "@/app/work/types";
 import Image from "next/image";
-import { Code2, Loader } from "lucide-react";
+import { Code2, Loader2 } from "lucide-react";
 
 export function ProjectCard({ project }: { project: Project }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <div className="flex h-16 w-16 items-center justify-center rounded-sm bg-accent/10 border relative overflow-hidden">
             {hasImage && isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-card/50">
-                <Loader className="h-5 w-5 animate-spin text-accent" />
+                <Loader2 className="h-5 w-5 animate-spin text-primary" />
               </div>
             )}
 
